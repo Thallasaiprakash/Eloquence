@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic, Zap, Layout, FileUp, MessageSquare, Clock } from "lucide-react";
+import { Mic, Zap, PenTool, Layout, FileUp, Sparkles, MessageSquare, Shield, Globe, Clock, Accessibility, RefreshCw } from "lucide-react";
 
 const features = [
   {

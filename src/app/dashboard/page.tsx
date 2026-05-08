@@ -117,7 +117,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                &quot;Try telling me about your audience before we start writing. It helps me tailor the tone and complexity of your essay perfectly.&quot;
+                "Try telling me about your audience before we start writing. It helps me tailor the tone and complexity of your essay perfectly."
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/20 p-1">

@@ -20,13 +20,7 @@ export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  interface AnalysisResult {
-    title: string;
-    type: string;
-    keyPoints: string[];
-    toneSuggestion: string;
-  }
-  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
+  const [analysisResult, setAnalysisResult] = useState<any>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -143,7 +137,7 @@ export default function UploadPage() {
                       </div>
                       <div>
                         <h3 className="font-bold">AI Analysis Complete</h3>
-                        <p className="text-xs text-muted-foreground">We&apos;ve extracted the core instructions</p>
+                        <p className="text-xs text-muted-foreground">We've extracted the core instructions</p>
                       </div>
                     </div>
 

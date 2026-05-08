@@ -5,7 +5,12 @@ import {
   User, 
   Bot, 
   Volume2, 
+  Bell, 
   Shield, 
+  Moon, 
+  Sun, 
+  Globe,
+  Settings,
   CreditCard,
   Sparkles
 } from "lucide-react";
@@ -78,7 +83,7 @@ export default function SettingsPage() {
           <Card className="glass border-white/5">
             <CardHeader>
               <CardTitle>AI Preferences</CardTitle>
-              <CardDescription>Tailor the AI&apos;s personality and writing style.</CardDescription>
+              <CardDescription>Tailor the AI's personality and writing style.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               <div className="space-y-3">
