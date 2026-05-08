@@ -10,20 +10,17 @@ import {
   History,
   Bot,
   Zap,
-  CheckCircle2,
-  AlertCircle
+  CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 
-export function EditorView({ id }: { id: string }) {
+export function EditorView({ id: _id }: { id: string }) {
   const [content, setContent] = useState("# The Impact of AI on Modern Architecture\n\nArtificial Intelligence is not just a tool; it's a new lens through which we view structural design. From generative algorithms that optimize structural integrity to AI-driven aesthetic explorations, the field of architecture is undergoing a profound transformation.\n\n## Generative Design and Sustainability\n\nOne of the most promising applications of AI in architecture is generative design. By inputting environmental parameters such as solar exposure, wind patterns, and material availability, AI can generate thousands of design iterations that prioritize sustainability...");
   const [isAISuggesting, setIsAISuggesting] = useState(false);
-  const { user } = useAuth();
   const router = useRouter();
 
   const handleAISuggest = () => {

@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { 
   Mic, 
   MicOff, 
   Sparkles, 
-  ArrowRight, 
   Bot, 
   User, 
   Save, 
@@ -39,16 +38,19 @@ export default function VoiceWritingPage() {
     setIsProcessing
   } = useVoiceStore();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && ('WebkitSpeechRecognition' in window || 'speechRecognition' in window)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = true;
       recognitionRef.current.interimResults = true;
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       recognitionRef.current.onresult = (event: any) => {
         let final = '';
         let interim = '';
@@ -64,10 +66,16 @@ export default function VoiceWritingPage() {
       };
 
       recognitionRef.current.onend = () => {
-        if (isRecording) recognitionRef.current.start();
+        if (isRecording) {
+          try {
+            recognitionRef.current.start();
+          } catch (e) {
+            console.error("Speech recognition restart error:", e);
+          }
+        }
       };
     }
-  }, [transcript, isRecording]);
+  }, [transcript, isRecording, setInterimTranscript, setTranscript]);
 
   const toggleRecording = () => {
     if (isRecording) {
